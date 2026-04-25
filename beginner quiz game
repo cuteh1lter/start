@@ -1,0 +1,42 @@
+questions = ("How many states does the USA have?: ",
+             "What is the largest organ in human's body?: ",
+             "What is the distance between the Moon and the Earth?: ",
+             "What is the chemical formula for sulfuric acid?: ",
+             "When did World War 2 start?: ")
+options = (("A. 50", "B. 45", "C. 51", "D. 59"),
+           ("A. Brain", "B. Liver", "C. Skin", "D. Tongue"),
+           ("A. 374K kms", "B. 384K kms", "C. 320K kms", "D. 390K kms"),
+           ("A. NH3", "B. H2SO4", "C. NaCl", "D. H2O"),
+           ("A. 1940", "B. 1939", "C. 1941", "D. 1933"))
+answers = ("A", "C", "B", "B", "C")
+guesses = []
+score = 0
+question_num = 0
+for question in questions:
+    print("*****************")
+    print(question)
+    for option in options[question_num]:
+        print(option)
+    guess = input("Enter your guess (A, B, C, D): ").upper()
+    guesses.append(guess)
+    if guess == answers[question_num]:
+        score += 1
+        print("You guessed right!")
+    else:
+        print("Sorry, you did not guess right!")
+        print(F"{answers[question_num]} is the correct answer")
+
+    question_num += 1
+print("------------------")
+print("      Results     ")
+print("------------------")
+print("answers:", end=' ')
+for answer in answers:
+    print(answer, end=' ')
+print()
+print("guesses:", end=' ')
+for guess in guesses:
+    print(guess, end=' ')
+print()
+score = int((score / len(answers)) * 100)
+print(f"Your final score is: {score}%")
